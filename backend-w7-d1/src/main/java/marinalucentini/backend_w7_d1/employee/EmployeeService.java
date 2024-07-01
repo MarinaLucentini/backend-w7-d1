@@ -29,7 +29,7 @@ employee -> {
     throw new BadRequestException("L'email " + employeeDto.email() + " è già in uso!");
 }
 );
-Employee employeeForDb = new Employee(employeeDto.name(), employeeDto.surname(), employeeDto.email(), employeeDto.username());
+Employee employeeForDb = new Employee(employeeDto.name(), employeeDto.surname(), employeeDto.email(), employeeDto.username(), employeeDto.password());
 employeeForDb.setUrlavatar("https://unsplash.com/it/foto/donna-in-camicia-nera-sorridente-lNNHyRbmm0o");
 return employeeRepository.save(employeeForDb);
 }
@@ -63,5 +63,8 @@ public String uploadImage(MultipartFile file) throws IOException {
         Employee employeeFound = findById(employeeId);
         employeeFound.setUrlavatar(urlImage);
         return employeeRepository.save(employeeFound);
+    }
+    public Employee findByEmail(String email){
+        return employeeRepository.findByEmail(email).orElseThrow(() -> new NotFoundException("Utente con email " + email + " non trovato!"));
     }
 }
