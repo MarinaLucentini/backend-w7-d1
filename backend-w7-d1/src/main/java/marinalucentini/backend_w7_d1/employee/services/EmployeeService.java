@@ -1,7 +1,9 @@
-package marinalucentini.backend_w7_d1.employee;
+package marinalucentini.backend_w7_d1.employee.services;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import marinalucentini.backend_w7_d1.employee.Employee;
+import marinalucentini.backend_w7_d1.employee.EmployeeRepository;
 import marinalucentini.backend_w7_d1.employee.payload.EmployeeDto;
 import marinalucentini.backend_w7_d1.exceptions.BadRequestException;
 import marinalucentini.backend_w7_d1.exceptions.NotFoundException;
@@ -19,7 +21,7 @@ import java.util.UUID;
 @Service
 public class EmployeeService {
    @Autowired
-    EmployeeRepository employeeRepository;
+   EmployeeRepository employeeRepository;
    @Autowired
     Cloudinary cloudinary;
 

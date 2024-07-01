@@ -1,5 +1,7 @@
-package marinalucentini.backend_w7_d1.employee;
+package marinalucentini.backend_w7_d1.employee.controller;
 
+import marinalucentini.backend_w7_d1.employee.Employee;
+import marinalucentini.backend_w7_d1.employee.services.EmployeeService;
 import marinalucentini.backend_w7_d1.employee.payload.EmployeeDto;
 import marinalucentini.backend_w7_d1.employee.payload.EmployeeResponseDto;
 import marinalucentini.backend_w7_d1.exceptions.BadRequestException;
@@ -19,14 +21,7 @@ import java.util.UUID;
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-public EmployeeResponseDto employeeResponseDto  (@RequestBody @Validated EmployeeDto employeeDto, BindingResult bindingResult){
-if(bindingResult.hasErrors()){
-    throw new BadRequestException(bindingResult.getAllErrors());
-}
-return new EmployeeResponseDto( employeeService.saveEmployee(employeeDto).getId());
-    }
+
 @GetMapping
     public Page<Employee> getEmployee (@RequestParam (defaultValue = "0")int page, @RequestParam (defaultValue = "5")int size, @RequestParam (defaultValue = "name")String sortBy){
 return employeeService.getEmployee(page, size, sortBy);

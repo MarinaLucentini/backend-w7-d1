@@ -4,7 +4,7 @@ import marinalucentini.backend_w7_d1.device.entities.Device;
 import marinalucentini.backend_w7_d1.device.enums.StateDevice;
 import marinalucentini.backend_w7_d1.device.enums.TypeDevice;
 import marinalucentini.backend_w7_d1.employee.Employee;
-import marinalucentini.backend_w7_d1.employee.EmployeeService;
+import marinalucentini.backend_w7_d1.employee.services.EmployeeService;
 import marinalucentini.backend_w7_d1.exceptions.BadRequestException;
 import marinalucentini.backend_w7_d1.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

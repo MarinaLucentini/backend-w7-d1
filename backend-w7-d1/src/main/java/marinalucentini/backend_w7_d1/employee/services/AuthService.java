@@ -1,5 +1,6 @@
-package marinalucentini.backend_w7_d1.employee;
+package marinalucentini.backend_w7_d1.employee.services;
 
+import marinalucentini.backend_w7_d1.employee.Employee;
 import marinalucentini.backend_w7_d1.employee.payload.EmployeeLoginDto;
 import marinalucentini.backend_w7_d1.employee.security.JwtTool;
 import marinalucentini.backend_w7_d1.exceptions.UnauthorizedException;
@@ -15,7 +16,6 @@ public class AuthService {
     private JwtTool jwtTool;
 
     public String authenticateUserAndGenerateToken(EmployeeLoginDto payload){
-
 
         Employee employee = employeeService.findByEmail(payload.email());
 

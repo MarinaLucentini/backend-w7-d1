@@ -22,6 +22,15 @@ public class JwtTool {
                 .compact();
     }
 
+    public void verifyToken(String token){
+        try {
+            Jwts.parser().verifyWith(Keys.hmacShaKeyFor(secret.getBytes())).build().parse(token);
 
+
+        } catch (Exception ex){
+            throw new UnauthorizedException("Problemi col token! Per favore effettua di nuovo il login!");
+
+        }
+    }
 
 }
