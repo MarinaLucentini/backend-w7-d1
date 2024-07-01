@@ -1,5 +1,7 @@
 package marinalucentini.backend_w7_d1.employee;
 
+import marinalucentini.backend_w7_d1.employee.payload.EmployeeDto;
+import marinalucentini.backend_w7_d1.employee.payload.EmployeeResponseDto;
 import marinalucentini.backend_w7_d1.exceptions.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,7 +21,7 @@ public class EmployeeController {
     EmployeeService employeeService;
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-public  EmployeeResponseDto employeeResponseDto  (@RequestBody @Validated EmployeeDto employeeDto, BindingResult bindingResult){
+public EmployeeResponseDto employeeResponseDto  (@RequestBody @Validated EmployeeDto employeeDto, BindingResult bindingResult){
 if(bindingResult.hasErrors()){
     throw new BadRequestException(bindingResult.getAllErrors());
 }

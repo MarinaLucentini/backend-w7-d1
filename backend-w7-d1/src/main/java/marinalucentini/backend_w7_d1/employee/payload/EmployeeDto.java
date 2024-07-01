@@ -1,4 +1,4 @@
-package marinalucentini.backend_w7_d1.employee;
+package marinalucentini.backend_w7_d1.employee.payload;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
